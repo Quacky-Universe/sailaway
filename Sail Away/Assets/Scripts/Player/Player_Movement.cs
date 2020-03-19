@@ -8,9 +8,9 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] private float turnSpeed = 15f;
 
-    //Player inputs.
-    private float InputX;
-    private float InputY;
+    [Header("Player Inputs")]
+    [SerializeField]private float InputX;
+    [SerializeField] private float InputY;
 
     public Rigidbody playerRB;
 
@@ -28,14 +28,16 @@ public class Player_Movement : MonoBehaviour
         //Rotate the player based on the moveDir
         if (MoveDir.magnitude > .1f)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(MoveDir), Time.deltaTime * turnSpeed);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(MoveDir, Vector3.up), Time.fixedDeltaTime * turnSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(MoveDir), turnSpeed * Time.deltaTime);
         }
         else
         {
+            //Stops the player if we press nothing 
             playerRB.velocity = Vector3.zero;
         }
 
         //Move the player
-        playerRB.MovePosition(Vector3.Lerp(transform.position, transform.position + MoveDir, Speed * Time.deltaTime));
+        playerRB.MovePosition(Vector3.Lerp(transform.position, transform.position + transform.forward * MoveDir.magnitude, Speed * Time.deltaTime));
     }
 }
