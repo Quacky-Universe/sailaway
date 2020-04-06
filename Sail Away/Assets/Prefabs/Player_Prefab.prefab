@@ -313,12 +313,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4834268857132592960}
-  - component: {fileID: 4834268857132592961}
-  - component: {fileID: 1552828367130478631}
   - component: {fileID: 4834268857132592966}
+  - component: {fileID: 518033382}
+  - component: {fileID: 518033381}
+  - component: {fileID: 1087104422355368514}
   m_Layer: 0
   m_Name: Player_Prefab
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,37 +340,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4834268857132592961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4834268857132592963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30f06495ace13ca42abc4e9edd10c9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 2
-  turnSpeed: 2
-  InputX: 0
-  InputY: 0
-  playerRB: {fileID: 4834268857132592966}
---- !u!114 &1552828367130478631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4834268857132592963}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414dc02484fa9584caa490baf88c51da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPoint: {fileID: 3796140485758277314}
-  poolTag: cannon_ball
 --- !u!54 &4834268857132592966
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -386,6 +356,50 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 3
+--- !u!114 &518033382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834268857132592963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f06495ace13ca42abc4e9edd10c9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+  turnSpeed: 15
+  InputX: 0
+  InputY: 0
+--- !u!114 &518033381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834268857132592963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a61afd08c7db14cb28a9b03350a1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  smoothSpeed: 0.125
+--- !u!114 &1087104422355368514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834268857132592963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414dc02484fa9584caa490baf88c51da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPoint: {fileID: 3796140485758277314}
+  poolTag: cannon_ball
 --- !u!1 &4834268857167509713
 GameObject:
   m_ObjectHideFlags: 0

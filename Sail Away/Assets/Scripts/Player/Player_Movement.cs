@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Player_Movement : MonoBehaviour
 {
     [Header("Player Movement Stats")]
@@ -12,7 +13,12 @@ public class Player_Movement : MonoBehaviour
     [SerializeField]private float InputX;
     [SerializeField] private float InputY;
 
-    public Rigidbody playerRB;
+    Rigidbody playerRB;
+
+    void Start()
+    {
+        playerRB = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {

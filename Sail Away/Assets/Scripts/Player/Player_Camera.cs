@@ -11,7 +11,7 @@ public class Player_Camera : MonoBehaviour
     private void Start()
     {
         //Find the player transform
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameManager.instance.player;
     }
 
     private void FixedUpdate()
