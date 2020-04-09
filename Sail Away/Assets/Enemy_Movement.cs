@@ -16,6 +16,8 @@ public class Enemy_Movement : MonoBehaviour
 
     bool isAttacking = false;
 
+    public LayerMask obstruct;
+
     void Start()
     {
         //Random Positions to patrol to
@@ -25,47 +27,53 @@ public class Enemy_Movement : MonoBehaviour
 
     void Update()
     {
+        RaycastHit hit;
         float distanceFromTarget = Vector3.Distance(transform.position, GameManager.instance.player.position);
 
-        if (distanceFromTarget <= attackRadius && distanceFromTarget <= fleeRadius)
+        if (isAttacking)
+        {
+            if (Physics.Raycast(transform.position, (GameManager.instance.player.position - transform.position), out hit, fleeRadius))
+            {
+                if (hit.transform == GameManager.instance.player)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.position, speed * Time.deltaTime);
+
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(GameManager.instance.player.position - transform.position), turnSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    isAttacking = false;
+                }
+            }
+
+            if (distanceFromTarget >= attackRadius && distanceFromTarget >= fleeRadius)
+            {
+                isAttacking = false;
+            }
+        }
+
+        if (Physics.Raycast(transform.position, (GameManager.instance.player.position - transform.position), out hit, fleeRadius))
+        {
+            if (hit.transform == GameManager.instance.player)
+            {
+                if (distanceFromTarget <= attackRadius && distanceFromTarget <= fleeRadius)
+                {
+                    isAttacking = true;
+                }
+            }
+            else
+            {
+                isAttacking = false;
+            }
+        }
+
+        if (isAttacking)
         {
             transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.position, speed * Time.deltaTime);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(GameManager.instance.player.position - transform.position), turnSpeed * Time.deltaTime);
-
-            isAttacking = true;
         }
-        else if (distanceFromTarget >= attackRadius && distanceFromTarget <= fleeRadius && isAttacking)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.position, speed * Time.deltaTime);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(GameManager.instance.player.position - transform.position), turnSpeed * Time.deltaTime);
-        }
-        else if (distanceFromTarget >= attackRadius && distanceFromTarget >= fleeRadius && isAttacking)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, moveToPosition, speed * Time.deltaTime);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveToPosition - transform.position), turnSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, moveToPosition) <= 0.02f)
-            {
-                moveToPosition = new Vector3(Random.Range(mainPosition.x - 5f, mainPosition.x + 5f), mainPosition.y, Random.Range(mainPosition.z - 5f, mainPosition.z + 5f));
-            }
-
-            isAttacking = false;
-        }
-        else if (distanceFromTarget >= attackRadius && distanceFromTarget >= fleeRadius && !isAttacking)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, moveToPosition, speed * Time.deltaTime);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveToPosition - transform.position), turnSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, moveToPosition) <= 0.02f)
-            {
-                moveToPosition = new Vector3(Random.Range(mainPosition.x - 5f, mainPosition.x + 5f), mainPosition.y, Random.Range(mainPosition.z - 5f, mainPosition.z + 5f));
-            }
-        }
-        else if (distanceFromTarget >= attackRadius && distanceFromTarget <= fleeRadius && !isAttacking)
+        else
         {
             transform.position = Vector3.MoveTowards(transform.position, moveToPosition, speed * Time.deltaTime);
 
