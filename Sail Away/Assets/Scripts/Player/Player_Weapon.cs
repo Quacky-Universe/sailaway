@@ -9,11 +9,41 @@ public class Player_Weapon : MonoBehaviour
 
     [SerializeField] private string poolTag = "cannon_ball";
 
-    private void Update()
+    [SerializeField] GameObject cannonBall;
+
+    [SerializeField] float startTimeBTWFires = 2f;
+    float timeBTWFires;
+
+    void Start()
     {
-        if (Input.GetButtonDown("Fire1"))
+        timeBTWFires = startTimeBTWFires;
+    }
+
+    void Update()
+    {
+        if (timeBTWFires <= 0f)
         {
-            Gameplay_PoolingManager.Instance.SpawnFromPool(poolTag, weaponPoint.position, weaponPoint.rotation);
+            if (Input.GetButtonDown("Fire1"))
+            {
+                /*
+                Gameplay_PoolingManager.Instance.SpawnFromPool(poolTag, weaponPoint.position, weaponPoint.rotation);
+                cannonBallGO.transform.position = transform.forward * 50f;
+                Destroy(cannonBallGO, 3f);
+                */
+
+                if (cannonBall != null)
+                {
+                    GameObject cannonBallGO = Instantiate(cannonBall, weaponPoint.position, weaponPoint.rotation);
+                    cannonBallGO.GetComponent<Rigidbody>().AddForce(transform.forward * 500f);
+                    Destroy(cannonBallGO, 3f);
+
+                    timeBTWFires = startTimeBTWFires;
+                }
+            }
+        }
+        else
+        {
+            timeBTWFires -= Time.deltaTime;
         }
     }
 }

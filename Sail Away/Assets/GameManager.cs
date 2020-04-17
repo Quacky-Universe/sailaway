@@ -17,4 +17,16 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Transform player;
+    public GameObject enemy;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (enemy != null)
+            {
+                Instantiate(enemy, Vector3.zero, Quaternion.identity);
+            }
+        }
+    }
 }

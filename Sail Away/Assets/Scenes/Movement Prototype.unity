@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 518033384}
+  enemy: {fileID: 2675063064466771289, guid: 2996db6b9c413d942886eafa1ddc2800, type: 3}
 --- !u!1 &90449699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1322,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1087104422355368514, guid: 13f11afe9136a5d4092a54e542c0e1c2,
+        type: 3}
+      propertyPath: cannonBall
+      value: 
+      objectReference: {fileID: 6551027297423980230, guid: 6b1ca0bf99a60c94e8da8220d678fca2,
+        type: 3}
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1334,7 +1341,7 @@ PrefabInstance:
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}

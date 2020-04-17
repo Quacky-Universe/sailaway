@@ -18,6 +18,8 @@ public class Enemy_Movement : MonoBehaviour
 
     public LayerMask obstruct;
 
+    RaycastHit hit;
+
     void Start()
     {
         //Random Positions to patrol to
@@ -27,7 +29,6 @@ public class Enemy_Movement : MonoBehaviour
 
     void Update()
     {
-        RaycastHit hit;
         float distanceFromTarget = Vector3.Distance(transform.position, GameManager.instance.player.position);
 
         if (isAttacking)
@@ -93,6 +94,37 @@ public class Enemy_Movement : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, fleeRadius);
+
+        if (Physics.Raycast(transform.position, (GameManager.instance.player.position - transform.position), out hit, fleeRadius))
+        {
+            if (hit.transform == GameManager.instance.player)
+            {
+                if (isAttacking)
+                {
+                    Gizmos.color = Color.red;
+                }
+                else
+                {
+                    Gizmos.color = Color.green;
+                }
+
+                Gizmos.DrawLine(transform.position, GameManager.instance.player.position);
+            }
+            else
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawLine(transform.position, GameManager.instance.player.position);
+            }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("CannonBall"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
 
