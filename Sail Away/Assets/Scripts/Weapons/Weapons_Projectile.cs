@@ -8,5 +8,5 @@ public class Weapons_Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }   
 }
