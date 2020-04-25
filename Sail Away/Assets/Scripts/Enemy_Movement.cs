@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Enemy_Movement : MonoBehaviour
 {
-    public float speed = 1f;
-    public float turnSpeed = 0.5f;
+    Rigidbody rb;
+
+    public float speed = 200f;
+    public float turnSpeed = 0.25f;
 
     public Vector3 mainPosition;
     public Vector3 moveToPosition;
@@ -22,6 +25,8 @@ public class Enemy_Movement : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         //Random Positions to patrol to
         mainPosition = transform.position;
         moveToPosition = new Vector3(Random.Range(mainPosition.x - 5f, mainPosition.x + 5f), mainPosition.y, Random.Range(mainPosition.z - 5f, mainPosition.z + 5f));
@@ -37,7 +42,7 @@ public class Enemy_Movement : MonoBehaviour
             {
                 if (hit.transform == GameManager.instance.player)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.position, speed * Time.deltaTime);
+                    rb.velocity = transform.forward * speed * Time.deltaTime;
 
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(GameManager.instance.player.position - transform.position), turnSpeed * Time.deltaTime);
                 }
@@ -70,13 +75,13 @@ public class Enemy_Movement : MonoBehaviour
 
         if (isAttacking)
         {
-            transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.position, speed * Time.deltaTime);
+            rb.velocity = transform.forward * speed * Time.deltaTime;
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(GameManager.instance.player.position - transform.position), turnSpeed * Time.deltaTime);
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, moveToPosition, speed * Time.deltaTime);
+            rb.velocity = transform.forward * speed * Time.deltaTime;
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveToPosition - transform.position), turnSpeed * Time.deltaTime);
 

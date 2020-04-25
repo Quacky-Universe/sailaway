@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public Transform player;
+    public Camera cam;
     public GameObject enemy;
 
     void Update()

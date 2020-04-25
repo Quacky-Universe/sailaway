@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 27727579}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 518033384}
+  cam: {fileID: 963194227}
   enemy: {fileID: 2675063064466771289, guid: 2996db6b9c413d942886eafa1ddc2800, type: 3}
 --- !u!1 &90449699
 GameObject:
@@ -295,7 +296,7 @@ GameObject:
   - component: {fileID: 90449701}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -388,7 +389,7 @@ GameObject:
   - component: {fileID: 336713347}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -520,7 +521,7 @@ GameObject:
   - component: {fileID: 397978711}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -711,7 +712,7 @@ GameObject:
   - component: {fileID: 958351851}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -902,7 +903,7 @@ GameObject:
   - component: {fileID: 1544648904}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1127,6 +1128,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6565598921227674722, guid: 2996db6b9c413d942886eafa1ddc2800,
+        type: 3}
+      propertyPath: speed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565598921227674722, guid: 2996db6b9c413d942886eafa1ddc2800,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2996db6b9c413d942886eafa1ddc2800, type: 3}
 --- !u!1 &1796334045
@@ -1143,7 +1154,7 @@ GameObject:
   - component: {fileID: 1796334047}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1236,7 +1247,7 @@ GameObject:
   - component: {fileID: 1803807917}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1322,12 +1333,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1087104422355368514, guid: 13f11afe9136a5d4092a54e542c0e1c2,
-        type: 3}
-      propertyPath: cannonBall
-      value: 
-      objectReference: {fileID: 6551027297423980230, guid: 6b1ca0bf99a60c94e8da8220d678fca2,
-        type: 3}
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalPosition.x
