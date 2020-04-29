@@ -348,9 +348,10 @@ GameObject:
   - component: {fileID: 518033382}
   - component: {fileID: 518033381}
   - component: {fileID: 1087104422355368514}
+  - component: {fileID: 5242380859494445109}
   m_Layer: 0
   m_Name: Player_Prefab
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,8 +400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f06495ace13ca42abc4e9edd10c9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
-  turnSpeed: 15
+  Speed: 2.5
+  turnSpeed: 2.5
   InputX: 0
   InputY: 0
 --- !u!114 &518033381
@@ -434,8 +435,22 @@ MonoBehaviour:
   poolTag: cannon_ball
   cannonBall: {fileID: 6551027297423980230, guid: 6b1ca0bf99a60c94e8da8220d678fca2,
     type: 3}
-  cannonBallSpeed: 250
+  cannonBallSpeed: 350
   startTimeBTWFires: 2
+--- !u!114 &5242380859494445109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834268857132592963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9885300683101284383fea347d9ca843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  currentHealth: 0
 --- !u!1 &4834268857167509713
 GameObject:
   m_ObjectHideFlags: 0

@@ -122,15 +122,6 @@ public class Enemy_Movement : MonoBehaviour
             }
         }
     }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("CannonBall"))
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
-    }
 }
 
 /*
