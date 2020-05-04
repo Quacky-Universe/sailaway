@@ -1,14 +1,19 @@
 fileFormatVersion: 2
-guid: be0120a2eaa142b4d98ef7f082af6bbd
+guid: 9722606a3fa5afa4e83fcb9042c75bcb
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tropical Island
+    second: {fileID: 2100000, guid: 4387a9bd822e3184e8bb490be7466f55, type: 2}
   materials:
     materialImportMode: 1
-    materialName: 0
+    materialName: 2
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
