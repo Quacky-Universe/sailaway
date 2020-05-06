@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 71200965ac1c3cd4dbc22e7843b34d80
+guid: 267d67d28cc88944099b7027c2a5bf05
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Plane.001_Plane.004_Tropical_IslandMat
-    second: {fileID: 2100000, guid: 05b2efeca0d05804d9785c04a51346fa, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
