@@ -4090,17 +4090,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d8a5ac1bf00cd514fa4174f3e3278277,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23
+      value: -23.001
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d8a5ac1bf00cd514fa4174f3e3278277,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29999924
+      value: -12.185
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d8a5ac1bf00cd514fa4174f3e3278277,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.3
+      value: 4.297
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d8a5ac1bf00cd514fa4174f3e3278277,
         type: 3}
@@ -4160,7 +4160,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: d8a5ac1bf00cd514fa4174f3e3278277,
         type: 3}
       propertyPath: m_Name
-      value: Desert_4
+      value: Desert_4(do not delete)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8a5ac1bf00cd514fa4174f3e3278277, type: 3}
@@ -4512,6 +4512,24 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1 &1559836225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1207543391218706, guid: 6765f9da738e023499d7110035d6a3f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1860993403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1559836226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559836225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6477bd9fe25de1e4e9df8a765e6e4d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1574734204
 GameObject:
   m_ObjectHideFlags: 0
@@ -5123,9 +5141,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   island: {fileID: 585398244}
   xspread: 1000
-  yspread: 0
+  yspread: 0.1
   zspread: 1000
-  num: 100
+  num: 750
   rotation: {x: -89.98, y: 23, z: 0, w: 0}
 --- !u!4 &1735852231
 Transform:
@@ -5795,6 +5813,118 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1001 &1860993403
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1207543391218706, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_Name
+      value: Presence Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: applicationId
+      value: 708248554501701662
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.state
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.details
+      value: Sailing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.largeImageKey
+      value: sailaway2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.largeImageText
+      value: Sail Away
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.smallImageKey
+      value: splashscreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.smallImageText
+      value: Quacky Studios
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.spectateSecret
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.joinSecret
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.matchSecret
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
+        type: 3}
+      propertyPath: presence.instance
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
 --- !u!1 &1917791468
 GameObject:
   m_ObjectHideFlags: 0
