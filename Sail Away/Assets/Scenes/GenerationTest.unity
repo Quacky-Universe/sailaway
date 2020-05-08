@@ -5886,7 +5886,7 @@ PrefabInstance:
     - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
         type: 3}
       propertyPath: presence.largeImageKey
-      value: sailaway2
+      value: sailaway
       objectReference: {fileID: 0}
     - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
         type: 3}
@@ -5896,12 +5896,12 @@ PrefabInstance:
     - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
         type: 3}
       propertyPath: presence.smallImageKey
-      value: splashscreen
+      value: quackystudio
       objectReference: {fileID: 0}
     - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
         type: 3}
       propertyPath: presence.smallImageText
-      value: Quacky Studios
+      value: By Quacky Studios
       objectReference: {fileID: 0}
     - target: {fileID: 114922932606890730, guid: 6765f9da738e023499d7110035d6a3f9,
         type: 3}
