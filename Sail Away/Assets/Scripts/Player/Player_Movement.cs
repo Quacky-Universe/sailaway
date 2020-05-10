@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     [Header("Player Movement Stats")]
-    [SerializeField] private float Speed;
+    [SerializeField] private float Speed = 2.5f;
     [SerializeField] private float turnSpeed = 15f;
 
     [Header("Player Inputs")]
@@ -14,12 +14,36 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float InputY;
 
     Rigidbody playerRB;
-
+    private float CurrentSpeed;
     void Start()
     {
         playerRB = GetComponent<Rigidbody>();
+        CurrentSpeed = Speed;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CurrentSpeed = Speed;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CurrentSpeed = Speed * 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CurrentSpeed = Speed * 3;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    CurrentSpeed = Speed * 4;
+                }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            CurrentSpeed = Speed * 5;
+        }
+    }
     private void FixedUpdate()
     {
         //Detect player input 
@@ -44,6 +68,6 @@ public class Player_Movement : MonoBehaviour
         }
 
         //Move the player
-        playerRB.MovePosition(Vector3.Lerp(transform.position, transform.position + transform.forward * MoveDir.magnitude, Speed * Time.deltaTime));
+        playerRB.MovePosition(Vector3.Lerp(transform.position, transform.position + transform.forward * MoveDir.magnitude, CurrentSpeed * Time.deltaTime));
     }
 }

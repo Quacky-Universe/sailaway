@@ -1398,6 +1398,12 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1 &254891309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2675063064466771289, guid: 2996db6b9c413d942886eafa1ddc2800,
+    type: 3}
+  m_PrefabInstance: {fileID: 1775767104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &270764371
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,6 +5194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae5d142c6cd0854a9448167f923ca41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 254891309}
   island: {fileID: 3828337}
   xspread: 3464.56
   yspread: 0.1

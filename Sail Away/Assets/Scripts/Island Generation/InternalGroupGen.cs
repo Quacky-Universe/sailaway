@@ -16,13 +16,14 @@ public class InternalGroupGen : MonoBehaviour
     {
         for (int i = 0; i < num;  i++)
         {
-            SpreadItem();
-
+            SpreadIsland();
         }
     }
 
-    void SpreadItem(){
+    void SpreadIsland(){
         Vector3 randposition = new Vector3(Random.Range(-xspread,xspread),Random.Range(-yspread,yspread),Random.Range(-zspread,zspread)) + transform.position;
         GameObject clone = Instantiate(island, randposition, island.transform.localRotation);
     }
+    
 }
+
