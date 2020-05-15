@@ -2,18 +2,21 @@
 
 public class CharacterHealth : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 20f;
-    [SerializeField] float currentHealth;
+    [SerializeField] int maxHealth = 20;
+    [SerializeField] int currentHealth;
+    public HealthBar healthBar;
+    
 
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-
+    healthBar.setHealth(currentHealth);
         if (currentHealth <= 0f)
         {
             Die();

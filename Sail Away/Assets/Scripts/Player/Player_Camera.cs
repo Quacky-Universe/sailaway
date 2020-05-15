@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Camera : MonoBehaviour
 {
+    
     private Transform target;
     public Vector3 offset;
     public float smoothSpeed = 0.125f;
@@ -15,7 +16,7 @@ public class Player_Camera : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {    
         if(target)
         {
             Vector3 desiredPosition = target.position + offset;

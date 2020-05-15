@@ -2,11 +2,11 @@
 
 public class Weapons_Projectile : MonoBehaviour
 {
-    public static float damage = 10f;
+    private static int damage = 5;
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Enemy"))
+        if (collision.transform.CompareTag("Enemy")||collision.transform.CompareTag("Player"))
         {
             if (collision.transform.GetComponent<CharacterHealth>() != null)
             {
@@ -16,7 +16,7 @@ public class Weapons_Projectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if (collision.transform.CompareTag("Island"))
+        else if (collision.gameObject.name != null)
         {
             Destroy(gameObject);
         }

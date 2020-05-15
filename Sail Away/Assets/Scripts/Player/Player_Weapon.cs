@@ -45,7 +45,7 @@ public class Player_Weapon : MonoBehaviour
                 {
                     GameObject cannonBallGO = Instantiate(cannonBall, weaponPoint.position, weaponPoint.rotation);
                     cannonBallGO.GetComponent<Rigidbody>().AddForce(rotatePoint.forward * cannonBallSpeed);
-                    Destroy(cannonBallGO, 3f);
+                    Destroy(cannonBallGO, 5f);
 
                     timeBTWFires = startTimeBTWFires;
                 }
