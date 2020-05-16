@@ -2,15 +2,15 @@
 
 public class Weapons_Projectile : MonoBehaviour
 {
-    private static int damage = 5;
+    private static readonly int damage = 5;
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Enemy")||collision.transform.CompareTag("Player"))
+        if (collision.transform.CompareTag("Enemy") || collision.transform.CompareTag("Player"))
         {
             if (collision.transform.GetComponent<CharacterHealth>() != null)
             {
-                CharacterHealth characterHealth = collision.transform.GetComponent<CharacterHealth>();
+                var characterHealth = collision.transform.GetComponent<CharacterHealth>();
                 characterHealth.TakeDamage(damage);
 
                 Destroy(gameObject);
@@ -20,5 +20,5 @@ public class Weapons_Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }   
+    }
 }

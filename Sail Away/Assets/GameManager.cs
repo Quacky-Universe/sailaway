@@ -1,23 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Camera cam;
+    public GameObject enemy;
+
+    public Transform player;
 
     #region Singleton
 
     public static GameManager instance;
 
-    void Awake()
+    private void Awake()
     {
         instance = this;
     }
 
     #endregion
-
-    public Transform player;
-    public Camera cam;
-    public GameObject enemy;
-    
 }

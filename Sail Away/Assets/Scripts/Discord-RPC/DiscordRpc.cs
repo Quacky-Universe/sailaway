@@ -8,9 +8,6 @@ namespace DiscordPresence
     public class DiscordRpc
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void ReadyCallback();
-
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void DisconnectedCallback(int errorCode, string message);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -20,49 +17,13 @@ namespace DiscordPresence
         public delegate void JoinCallback(string secret);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void SpectateCallback(string secret);
+        public delegate void ReadyCallback();
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void RequestCallback(ref JoinRequest request);
 
-        public struct EventHandlers
-        {
-            public ReadyCallback readyCallback;
-            public DisconnectedCallback disconnectedCallback;
-            public ErrorCallback errorCallback;
-            public JoinCallback joinCallback;
-            public SpectateCallback spectateCallback;
-            public RequestCallback requestCallback;
-        }
-
-        [Serializable, StructLayout(LayoutKind.Sequential)]
-        public struct RichPresenceStruct
-        {
-            public IntPtr state;            // max 128 bytes
-            public IntPtr details;          // max 128 bytes
-            public long startTimestamp;
-            public long endTimestamp;
-            public IntPtr largeImageKey;    // max 32 bytes
-            public IntPtr largeImageText;   // max 128 bytes
-            public IntPtr smallImageKey;    // max 32 bytes
-            public IntPtr smallImageText;   // max 128 bytes
-            public IntPtr partyId;          // max 128 bytes
-            public int partySize;
-            public int partyMax;
-            public IntPtr matchSecret;      // max 128 bytes
-            public IntPtr joinSecret;       // max 128 bytes
-            public IntPtr spectateSecret;   // max 128 bytes
-            public bool instance;
-        }
-
-        [Serializable]
-        public struct JoinRequest
-        {
-            public string userId;
-            public string username;
-            public string discriminator;
-            public string avatar;
-        }
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void SpectateCallback(string secret);
 
         public enum Reply
         {
@@ -72,7 +33,8 @@ namespace DiscordPresence
         }
 
         [DllImport("discord-rpc", EntryPoint = "Discord_Initialize", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Initialize(string applicationId, ref EventHandlers handlers, bool autoRegister, string optionalSteamId);
+        public static extern void Initialize(string applicationId, ref EventHandlers handlers, bool autoRegister,
+            string optionalSteamId);
 
         [DllImport("discord-rpc", EntryPoint = "Discord_Shutdown", CallingConvention = CallingConvention.Cdecl)]
         public static extern void Shutdown();
@@ -99,32 +61,72 @@ namespace DiscordPresence
             presence.FreeMem();
         }
 
+        public struct EventHandlers
+        {
+            public ReadyCallback readyCallback;
+            public DisconnectedCallback disconnectedCallback;
+            public ErrorCallback errorCallback;
+            public JoinCallback joinCallback;
+            public SpectateCallback spectateCallback;
+            public RequestCallback requestCallback;
+        }
+
+        [Serializable]
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RichPresenceStruct
+        {
+            public IntPtr state; // max 128 bytes
+            public IntPtr details; // max 128 bytes
+            public long startTimestamp;
+            public long endTimestamp;
+            public IntPtr largeImageKey; // max 32 bytes
+            public IntPtr largeImageText; // max 128 bytes
+            public IntPtr smallImageKey; // max 32 bytes
+            public IntPtr smallImageText; // max 128 bytes
+            public IntPtr partyId; // max 128 bytes
+            public int partySize;
+            public int partyMax;
+            public IntPtr matchSecret; // max 128 bytes
+            public IntPtr joinSecret; // max 128 bytes
+            public IntPtr spectateSecret; // max 128 bytes
+            public bool instance;
+        }
+
+        [Serializable]
+        public struct JoinRequest
+        {
+            public string userId;
+            public string username;
+            public string discriminator;
+            public string avatar;
+        }
+
         [Serializable]
         public class RichPresence
         {
-            private RichPresenceStruct _presence;
             private readonly List<IntPtr> _buffers = new List<IntPtr>(10);
-
-            public string state;            // max 128 bytes
-            public string details;          // max 128 bytes
-            public long startTimestamp;
+            private RichPresenceStruct _presence;
+            public string details; // max 128 bytes
             public long endTimestamp;
-            public string largeImageKey;    // max 32 bytes
-            public string largeImageText;   // max 128 bytes
-            public string smallImageKey;    // max 32 bytes
-            public string smallImageText;   // max 128 bytes
-            public string partyId;          // max 128 bytes
-            public int partySize;
-            public int partyMax;
-            public string matchSecret;      // max 128 bytes
-            public string joinSecret;       // max 128 bytes
-            public string spectateSecret;   // max 128 bytes
             public bool instance;
+            public string joinSecret; // max 128 bytes
+            public string largeImageKey; // max 32 bytes
+            public string largeImageText; // max 128 bytes
+            public string matchSecret; // max 128 bytes
+            public string partyId; // max 128 bytes
+            public int partyMax;
+            public int partySize;
+            public string smallImageKey; // max 32 bytes
+            public string smallImageText; // max 128 bytes
+            public string spectateSecret; // max 128 bytes
+            public long startTimestamp;
+
+            public string state; // max 128 bytes
 
             /// <summary>
-            /// Get the <see cref="RichPresenceStruct"/> representation of this instance
+            ///     Get the <see cref="RichPresenceStruct" /> representation of this instance
             /// </summary>
-            /// <returns><see cref="RichPresenceStruct"/> representation of this instance</returns>
+            /// <returns><see cref="RichPresenceStruct" /> representation of this instance</returns>
             internal RichPresenceStruct GetStruct()
             {
                 if (_buffers.Count > 0)
@@ -150,11 +152,11 @@ namespace DiscordPresence
             }
 
             /// <summary>
-            /// Returns a pointer to a representation of the given string with a size of maxbytes
+            ///     Returns a pointer to a representation of the given string with a size of maxbytes
             /// </summary>
             /// <param name="input">String to convert</param>
             /// <param name="maxbytes">Max number of bytes to use</param>
-            /// <returns>Pointer to the UTF-8 representation of <see cref="input"/></returns>
+            /// <returns>Pointer to the UTF-8 representation of <see cref="input" /></returns>
             private IntPtr StrToPtr(string input, int maxbytes)
             {
                 if (string.IsNullOrEmpty(input)) return IntPtr.Zero;
@@ -167,10 +169,10 @@ namespace DiscordPresence
             }
 
             /// <summary>
-            /// Convert string to UTF-9 and add null termination
+            ///     Convert string to UTF-9 and add null termination
             /// </summary>
             /// <param name="toconv">string to convert</param>
-            /// <returns>UTF-8 representation of <see cref="toconv"/> with added null termination</returns>
+            /// <returns>UTF-8 representation of <see cref="toconv" /> with added null termination</returns>
             private static string StrToUtf8NullTerm(string toconv)
             {
                 var str = toconv.Trim();
@@ -182,11 +184,11 @@ namespace DiscordPresence
             }
 
             /// <summary>
-            /// Clamp the string to the given byte length preserving null termination
+            ///     Clamp the string to the given byte length preserving null termination
             /// </summary>
             /// <param name="toclamp">string to clamp</param>
             /// <param name="maxbytes">max bytes the resulting string should have (including null termination)</param>
-            /// <returns>null terminated string with a byte length less or equal to <see cref="maxbytes"/></returns>
+            /// <returns>null terminated string with a byte length less or equal to <see cref="maxbytes" /></returns>
             private static string StrClampBytes(string toclamp, int maxbytes)
             {
                 var str = StrToUtf8NullTerm(toclamp);
@@ -204,7 +206,7 @@ namespace DiscordPresence
             }
 
             /// <summary>
-            /// Free the allocated memory for conversion to <see cref="RichPresenceStruct"/>
+            ///     Free the allocated memory for conversion to <see cref="RichPresenceStruct" />
             /// </summary>
             internal void FreeMem()
             {

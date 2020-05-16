@@ -2,19 +2,19 @@
 
 namespace DiscordPresence
 {
-	public static class DiscordTime
-	{
+    public static class DiscordTime
+    {
         /// <summary>
-        /// Get the current time
+        ///     Get the current time
         /// </summary>
         /// <returns>The current time epoch</returns>
-		public static long TimeNow()
+        public static long TimeNow()
         {
-            return (long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
+            return (long) (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
         }
 
         /// <summary>
-        /// Add time to an epoch value
+        ///     Add time to an epoch value
         /// </summary>
         /// <param name="time">Epoch value</param>
         /// <param name="seconds">Seconds to add</param>
@@ -51,5 +51,5 @@ namespace DiscordPresence
             time -= hours * 3600;
             return time;
         }
-	}
+    }
 }

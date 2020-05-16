@@ -5,32 +5,39 @@ using UnityEngine.Events;
 namespace DiscordPresence
 {
     [Serializable]
-    public class DiscordJoinEvent : UnityEvent<string> { }
+    public class DiscordJoinEvent : UnityEvent<string>
+    {
+    }
 
     [Serializable]
-    public class DiscordSpectateEvent : UnityEvent<string> { }
+    public class DiscordSpectateEvent : UnityEvent<string>
+    {
+    }
 
     [Serializable]
-    public class DiscordJoinRequestEvent : UnityEvent<DiscordRpc.JoinRequest> { }
+    public class DiscordJoinRequestEvent : UnityEvent<DiscordRpc.JoinRequest>
+    {
+    }
 
     public class PresenceManager : MonoBehaviour
     {
-        public DiscordRpc.RichPresence presence = new DiscordRpc.RichPresence();
+        public static PresenceManager instance;
         public string applicationId;
-        public string optionalSteamId;
         public int callbackCalls;
+
+        private DiscordRpc.EventHandlers handlers;
+
+        public UnityEvent hasResponded;
+
         //public int clickCounter;
         public DiscordRpc.JoinRequest joinRequest;
         public UnityEvent onConnect;
         public UnityEvent onDisconnect;
-        public UnityEvent hasResponded;
         public DiscordJoinEvent onJoin;
-        public DiscordJoinEvent onSpectate;
         public DiscordJoinRequestEvent onJoinRequest;
-
-        DiscordRpc.EventHandlers handlers;
-
-        public static PresenceManager instance;
+        public DiscordJoinEvent onSpectate;
+        public string optionalSteamId;
+        public DiscordRpc.RichPresence presence = new DiscordRpc.RichPresence();
 
         /*public void OnClick()
         {
@@ -57,6 +64,7 @@ namespace DiscordPresence
         }
 
         #region Discord Callbacks
+
         public void ReadyCallback()
         {
             ++callbackCalls;
@@ -95,33 +103,31 @@ namespace DiscordPresence
         public void RequestCallback(ref DiscordRpc.JoinRequest request)
         {
             ++callbackCalls;
-            Debug.Log(string.Format("Discord: join request {0}#{1}: {2}", request.username, request.discriminator, request.userId));
+            Debug.Log(string.Format("Discord: join request {0}#{1}: {2}", request.username, request.discriminator,
+                request.userId));
             joinRequest = request;
             onJoinRequest.Invoke(request);
         }
+
         #endregion
 
         #region Monobehaviour Callbacks
+
         // Singleton
-        void Awake()
+        private void Awake()
         {
             if (instance == null)
-            {
                 instance = this;
-            }
-            else if (instance != this)
-            {
-                Destroy(gameObject);
-            }
+            else if (instance != this) Destroy(gameObject);
             DontDestroyOnLoad(gameObject);
         }
 
-        void Update()
+        private void Update()
         {
             DiscordRpc.RunCallbacks();
         }
 
-        void OnEnable()
+        private void OnEnable()
         {
             Debug.Log("Discord: init");
             callbackCalls = 0;
@@ -136,34 +142,37 @@ namespace DiscordPresence
             DiscordRpc.Initialize(applicationId, ref handlers, true, optionalSteamId);
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
             Debug.Log("Discord: shutdown");
             DiscordRpc.Shutdown();
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
-
         }
+
         #endregion
 
         #region Update Presence Method
-        public static void UpdatePresence(string detail, string state = null, long start = -1, long end = -1, string largeKey = null,string largeText = null, 
-            string smallKey = null, string smallText = null, string partyId = null, int size = -1, int max = -1, string match = null, string join = null, 
-            string spectate = null/*, bool instance*/)
+
+        public static void UpdatePresence(string detail, string state = null, long start = -1, long end = -1,
+            string largeKey = null, string largeText = null,
+            string smallKey = null, string smallText = null, string partyId = null, int size = -1, int max = -1,
+            string match = null, string join = null,
+            string spectate = null /*, bool instance*/)
         {
             instance.presence.details = detail ?? instance.presence.details;
             instance.presence.state = state ?? instance.presence.state;
-            instance.presence.startTimestamp = (start == -1) ? instance.presence.startTimestamp : start;
-            instance.presence.endTimestamp = (end == -1) ? instance.presence.endTimestamp : end;
+            instance.presence.startTimestamp = start == -1 ? instance.presence.startTimestamp : start;
+            instance.presence.endTimestamp = end == -1 ? instance.presence.endTimestamp : end;
             instance.presence.largeImageKey = largeKey ?? instance.presence.largeImageKey;
             instance.presence.largeImageText = largeText ?? instance.presence.largeImageText;
             instance.presence.smallImageKey = smallKey ?? instance.presence.smallImageKey;
             instance.presence.smallImageText = smallText ?? instance.presence.smallImageText;
             instance.presence.partyId = partyId ?? instance.presence.partyId;
-            instance.presence.partySize = (size == -1) ? instance.presence.partySize : size;
-            instance.presence.partyMax = (max == -1) ? instance.presence.partyMax : max;
+            instance.presence.partySize = size == -1 ? instance.presence.partySize : size;
+            instance.presence.partyMax = max == -1 ? instance.presence.partyMax : max;
             instance.presence.matchSecret = match ?? instance.presence.matchSecret;
             instance.presence.joinSecret = join ?? instance.presence.joinSecret;
             instance.presence.spectateSecret = spectate ?? instance.presence.spectateSecret;
@@ -195,6 +204,7 @@ namespace DiscordPresence
             ClearPresence();
             DiscordRpc.UpdatePresence(instance.presence);
         }
+
         #endregion
     }
 }

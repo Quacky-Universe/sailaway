@@ -1,14 +1,12 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class PlayerHealth : CharacterHealth
 {
-    int maxHealth = 20;
-    int currentHealth;
-    
+    private int currentHealth;
+    private readonly int maxHealth = 20;
 
-    void Start()
+
+    private void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -16,10 +14,7 @@ public class PlayerHealth : CharacterHealth
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            TakeDamage(2);
-        }
+        if (Input.GetKeyDown(KeyCode.Q)) TakeDamage(2);
     }
 
     public void TakeDamage(int amount)
@@ -28,9 +23,6 @@ public class PlayerHealth : CharacterHealth
         healthBar.setHealth(currentHealth);
         if (currentHealth <= 0f)
         {
-            
         }
     }
-
-    
 }

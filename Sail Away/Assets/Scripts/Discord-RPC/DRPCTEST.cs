@@ -1,19 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DiscordPresence;
 using UnityEngine;
-using DiscordPresence;
 
 public class DRPCTEST : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        PresenceManager.UpdatePresence(detail: "yaya");
+        PresenceManager.UpdatePresence("yaya");
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 }
