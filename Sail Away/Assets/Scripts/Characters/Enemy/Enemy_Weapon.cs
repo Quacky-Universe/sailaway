@@ -26,9 +26,6 @@ public class Enemy_Weapon : MonoBehaviour
     private void Update()
     {
         var currentPos = GameManager.instance.cam.WorldToScreenPoint(transform.position);
-        Vector2 lookDirection = Input.mousePosition - currentPos;
-        var angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
-        var weaponPointRotation = Quaternion.AngleAxis(-angle, Vector3.up);
 
 
         if (timeBTWFires <= 0f)

@@ -2,8 +2,8 @@
 
 public class PlayerHealth : CharacterHealth
 {
-    private int currentHealth;
     private readonly int maxHealth = 20;
+    private int currentHealth;
 
 
     private void Start()

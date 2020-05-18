@@ -4,7 +4,8 @@ public class Island_Generation : MonoBehaviour
 {
     public GameObject island;
     public int num = 100;
-    public Quaternion rotation = new Quaternion(0f, 0f, 0f, 0f);
+    private Quaternion rotation = new Quaternion(0f, 0f, 0f, 0f);
+
     public GameObject ship;
     public float xspread = 1000;
     public float yspread;
@@ -22,7 +23,13 @@ public class Island_Generation : MonoBehaviour
     {
         var randposition = new Vector3(Random.Range(-xspread, xspread), Random.Range(-yspread, yspread),
             Random.Range(-zspread, zspread)) + transform.position;
-        var clone = Instantiate(island, randposition, island.transform.localRotation);
+        if (Physics.CheckSphere(randposition, 10))
+        {
+        }
+        else
+        {
+            var clone = Instantiate(island, randposition, island.transform.localRotation);
+        }
     }
 
     private void SpreadShip()
