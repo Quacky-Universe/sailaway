@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
     public GameObject enemy;
 
     public Transform player;
-
     #region Singleton
 
     public static GameManager instance;

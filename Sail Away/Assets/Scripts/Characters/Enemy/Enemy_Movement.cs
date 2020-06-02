@@ -28,7 +28,6 @@ public class Enemy_Movement : MonoBehaviour
         moveToPosition = new Vector3(Random.Range(mainPosition.x - 5f, mainPosition.x + 5f), mainPosition.y,
             Random.Range(mainPosition.z - 5f, mainPosition.z + 5f));
     }
-
     private void Update()
     {
         var distanceFromTarget = Vector3.Distance(transform.position, GameManager.instance.player.position);
