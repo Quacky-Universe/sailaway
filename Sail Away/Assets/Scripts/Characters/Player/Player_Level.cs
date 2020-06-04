@@ -18,7 +18,7 @@ public class Player_Level : MonoBehaviour
     {
         lvlsize = Lvlsizeincrease;
         bar.GetComponent<LevelBar>().SetMaxLevel(lvlsize);
-
+        leveltxt.text = "Level " + currentlevel.ToString();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class Player_Level : MonoBehaviour
         if (currentxp >= lvlsize)
         {
             currentlevel++;
-            leveltxt.text = currentlevel.ToString();
+            leveltxt.text = "Level " + currentlevel.ToString();
             currentxp = 0;
             lvlsize = (currentlevel+1)*Lvlsizeincrease;
             bar.GetComponent<LevelBar>().SetMaxLevel(lvlsize);
