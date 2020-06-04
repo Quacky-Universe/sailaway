@@ -29,27 +29,27 @@ public class Player_Weapon : MonoBehaviour
 
         rotatePoint.rotation = weaponPointRotation;
 
-        if (timeBTWFires <= 0f)
+        if (PauseMenu.isPaused == false)
         {
-            if (Input.GetButtonDown("Fire1"))
-                /*
-                    Gameplay_PoolingManager.Instance.SpawnFromPool(poolTag, weaponPoint.position, weaponPoint.rotation);
-                    cannonBallGO.transform.position = transform.forward * 50f;
-                    Destroy(cannonBallGO, 3f);
-                    */
+            if (timeBTWFires <= 0f)
+            {
+                if (Input.GetButtonDown("Fire1"))
 
-                if (cannonBall != null)
-                {
-                    var cannonBallGO = Instantiate(cannonBall, weaponPoint.position, weaponPoint.rotation);
-                    cannonBallGO.GetComponent<Rigidbody>().AddForce(rotatePoint.forward * cannonBallSpeed);
-                    Destroy(cannonBallGO, 5f);
+                    if (cannonBall != null)
+                    {
+                        var cannonBallGO = Instantiate(cannonBall, weaponPoint.position, weaponPoint.rotation);
+                        cannonBallGO.GetComponent<Rigidbody>().AddForce(rotatePoint.forward * cannonBallSpeed);
+                        Destroy(cannonBallGO, 5f);
 
-                    timeBTWFires = startTimeBTWFires;
-                }
-        }
-        else
-        {
-            timeBTWFires -= Time.deltaTime;
+                        timeBTWFires = startTimeBTWFires;
+                    }
+            }
+            else
+            {
+                timeBTWFires -= Time.deltaTime;
+            }
+        }else{
+        
         }
     }
 }

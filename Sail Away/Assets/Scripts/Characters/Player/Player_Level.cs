@@ -27,7 +27,7 @@ public class Player_Level : MonoBehaviour
         if (currentxp >= lvlsize)
         {
             currentlevel++;
-            leveltxt.text = "Level " + currentlevel;
+            leveltxt.text = currentlevel.ToString();
             currentxp = 0;
             lvlsize = (currentlevel+1)*Lvlsizeincrease;
             bar.GetComponent<LevelBar>().SetMaxLevel(lvlsize);
