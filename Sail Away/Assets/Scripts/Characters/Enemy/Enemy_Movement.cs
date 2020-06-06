@@ -19,6 +19,7 @@ public class Enemy_Movement : MonoBehaviour
     public float speed = 200f;
     public float turnSpeed = 0.25f;
     public bool nearplayer;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -33,35 +34,19 @@ public class Enemy_Movement : MonoBehaviour
     {
         var distanceFromTarget = Vector3.Distance(transform.position, GameManager.instance.player.position);
 
-            if (isAttacking)
-            {
-                if (Physics.Raycast(transform.position, GameManager.instance.player.position - transform.position,
-                    out hit,
-                    fleeRadius))
-                {
-                    if (hit.transform == GameManager.instance.player)
-                    {
-                        rb.velocity = transform.forward * speed * Time.deltaTime;
-
-                        transform.rotation = Quaternion.Slerp(transform.rotation,
-                            Quaternion.LookRotation(GameManager.instance.player.position - transform.position),
-                            turnSpeed * Time.deltaTime);
-                    }
-                    else
-                    {
-                        isAttacking = false;
-                    }
-                }
-
-                if (distanceFromTarget >= attackRadius && distanceFromTarget >= fleeRadius) isAttacking = false;
-            }
-
-            if (Physics.Raycast(transform.position, GameManager.instance.player.position - transform.position, out hit,
+        if (isAttacking)
+        {
+            if (Physics.Raycast(transform.position, GameManager.instance.player.position - transform.position,
+                out hit,
                 fleeRadius))
             {
                 if (hit.transform == GameManager.instance.player)
                 {
-                    if (distanceFromTarget <= attackRadius && distanceFromTarget <= fleeRadius) isAttacking = true;
+                    rb.velocity = transform.forward * speed * Time.deltaTime;
+
+                    transform.rotation = Quaternion.Slerp(transform.rotation,
+                        Quaternion.LookRotation(GameManager.instance.player.position - transform.position),
+                        turnSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -69,28 +54,43 @@ public class Enemy_Movement : MonoBehaviour
                 }
             }
 
-            if (isAttacking)
-            {
-                rb.velocity = transform.forward * speed * Time.deltaTime;
+            if (distanceFromTarget >= attackRadius && distanceFromTarget >= fleeRadius) isAttacking = false;
+        }
 
-                transform.rotation = Quaternion.Slerp(transform.rotation,
-                    Quaternion.LookRotation(GameManager.instance.player.position - transform.position),
-                    turnSpeed * Time.deltaTime);
+        if (Physics.Raycast(transform.position, GameManager.instance.player.position - transform.position, out hit,
+            fleeRadius))
+        {
+            if (hit.transform == GameManager.instance.player)
+            {
+                if (distanceFromTarget <= attackRadius && distanceFromTarget <= fleeRadius) isAttacking = true;
             }
             else
             {
-                rb.velocity = transform.forward * speed * Time.deltaTime;
+                isAttacking = false;
+            }
+        }
 
-                transform.rotation = Quaternion.Slerp(transform.rotation,
-                    Quaternion.LookRotation(moveToPosition - transform.position), turnSpeed * Time.deltaTime);
+        if (isAttacking)
+        {
+            rb.velocity = transform.forward * speed * Time.deltaTime;
 
-                if (Vector3.Distance(transform.position, moveToPosition) <= 0.02f)
-                    moveToPosition = new Vector3(Random.Range(mainPosition.x - 5f, mainPosition.x + 5f), mainPosition.y,
-                        Random.Range(mainPosition.z - 5f, mainPosition.z + 5f));
-         
-            
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                Quaternion.LookRotation(GameManager.instance.player.position - transform.position),
+                turnSpeed * Time.deltaTime);
+        }
+        else
+        {
+            rb.velocity = transform.forward * speed * Time.deltaTime;
+
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                Quaternion.LookRotation(moveToPosition - transform.position), turnSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, moveToPosition) <= 0.02f)
+                moveToPosition = new Vector3(Random.Range(mainPosition.x - 5f, mainPosition.x + 5f), mainPosition.y,
+                    Random.Range(mainPosition.z - 5f, mainPosition.z + 5f));
         }
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

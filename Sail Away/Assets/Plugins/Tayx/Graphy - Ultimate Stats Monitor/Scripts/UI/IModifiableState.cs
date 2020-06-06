@@ -8,7 +8,7 @@
  * This project is released under the MIT license.
  * Attribution is not required, but it is always welcomed!
  * -------------------------------------*/
- 
+
 namespace Tayx.Graphy.UI
 {
     public interface IModifiableState
@@ -24,5 +24,4 @@ namespace Tayx.Graphy.UI
         /// </param>
         void SetState(GraphyManager.ModuleState newState, bool silentUpdate);
     }
-
 }

@@ -25,22 +25,22 @@ namespace Tayx.Graphy.Utils.NumString
         /// <summary>
         /// Float represented as a string, formatted.
         /// </summary>
-        private const   string      floatFormat         = "0.0";
+        private const string floatFormat = "0.0";
 
         /// <summary>
         /// The currently defined, globally used decimal multiplier.
         /// </summary>
-        private static  float       decimalMultiplier   = 1f;
+        private static float decimalMultiplier = 1f;
 
         /// <summary>
         /// List of negative floats casted to strings.
         /// </summary>
-        private static  string[]    negativeBuffer      = new string[0];
+        private static string[] negativeBuffer = new string[0];
 
         /// <summary>
         /// List of positive floats casted to strings.
         /// </summary>
-        private static  string[]    positiveBuffer      = new string[0];
+        private static string[] positiveBuffer = new string[0];
 
         #endregion
 
@@ -51,10 +51,7 @@ namespace Tayx.Graphy.Utils.NumString
         /// </summary>
         public static bool Inited
         {
-            get
-            {
-                return negativeBuffer.Length > 0 || positiveBuffer.Length > 0;
-            }
+            get { return negativeBuffer.Length > 0 || positiveBuffer.Length > 0; }
         }
 
         /// <summary>
@@ -62,10 +59,7 @@ namespace Tayx.Graphy.Utils.NumString
         /// </summary>
         public static float MinValue
         {
-            get
-            {
-                return -(negativeBuffer.Length - 1).FromIndex();
-            }
+            get { return -(negativeBuffer.Length - 1).FromIndex(); }
         }
 
         /// <summary>
@@ -73,10 +67,7 @@ namespace Tayx.Graphy.Utils.NumString
         /// </summary>
         public static float MaxValue
         {
-            get
-            {
-                return (positiveBuffer.Length - 1).FromIndex();
-            }
+            get { return (positiveBuffer.Length - 1).FromIndex(); }
         }
 
         #endregion
@@ -186,7 +177,7 @@ namespace Tayx.Graphy.Utils.NumString
         /// </returns>
         public static int ToInt(this float f)
         {
-            return (int)f;
+            return (int) f;
         }
 
         /// <summary>
@@ -200,7 +191,7 @@ namespace Tayx.Graphy.Utils.NumString
         /// </returns>
         public static float ToFloat(this int i)
         {
-            return (float)i;
+            return (float) i;
         }
 
         #endregion
@@ -214,6 +205,7 @@ namespace Tayx.Graphy.Utils.NumString
             {
                 f *= f;
             }
+
             return f;
         }
 

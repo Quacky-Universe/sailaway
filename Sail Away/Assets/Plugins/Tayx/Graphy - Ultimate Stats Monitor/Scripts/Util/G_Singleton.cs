@@ -33,9 +33,9 @@ namespace Tayx.Graphy.Utils
 
         #region Variables -> Private
 
-        private static  T       _instance;
+        private static T _instance;
 
-        private static  object  _lock       = new object();
+        private static object _lock = new object();
 
         #endregion
 
@@ -45,7 +45,6 @@ namespace Tayx.Graphy.Utils
         {
             get
             {
-                
                 if (_applicationIsQuitting)
                 {
                     //Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
@@ -53,12 +52,12 @@ namespace Tayx.Graphy.Utils
                     //    " Won't create again - returning null.");
                     return null;
                 }
-                
+
                 lock (_lock)
                 {
                     if (_instance == null)
                     {
-                        _instance = (T)FindObjectOfType(typeof(T));
+                        _instance = (T) FindObjectOfType(typeof(T));
 
                         if (FindObjectsOfType(typeof(T)).Length > 1)
                         {
@@ -117,6 +116,7 @@ namespace Tayx.Graphy.Utils
         }
 
         private static bool _applicationIsQuitting = false;
+
         /// <summary>
         /// When Unity quits, it destroys objects in a random order.
         /// In principle, a Singleton is only destroyed when application quits.

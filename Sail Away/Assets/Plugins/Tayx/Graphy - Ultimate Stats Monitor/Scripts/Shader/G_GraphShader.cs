@@ -26,54 +26,54 @@ namespace Tayx.Graphy
 
         #region Variables -> Array
 
-        public const int    ArrayMaxSizeFull            = 512;
-        public const int    ArrayMaxSizeLight           = 128;
+        public const int ArrayMaxSizeFull = 512;
+        public const int ArrayMaxSizeLight = 128;
 
-        public int          ArrayMaxSize                = 128;
+        public int ArrayMaxSize = 128;
 
-        public float[]      Array;                                              // The values
+        public float[] Array; // The values
 
         #endregion
 
         #region Variables -> Image
 
-        public Image        Image                       = null;
+        public Image Image = null;
 
         #endregion
 
         #region Variables -> Name
 
-        private string      Name                        = "GraphValues";        // The name of the array
-        private string      Name_Length                 = "GraphValues_Length";
+        private string Name = "GraphValues"; // The name of the array
+        private string Name_Length = "GraphValues_Length";
 
         #endregion
 
         #region Variables -> Average
 
-        public float        Average                     = 0;
-        private int         averagePropertyId           = 0;
+        public float Average = 0;
+        private int averagePropertyId = 0;
 
         #endregion
 
         #region Variables -> Thresholds
 
-        public float        GoodThreshold               = 0;
-        public float        CautionThreshold            = 0;
+        public float GoodThreshold = 0;
+        public float CautionThreshold = 0;
 
-        private int         goodThresholdPropertyId     = 0;
-        private int         cautionThresholdPropertyId  = 0;
+        private int goodThresholdPropertyId = 0;
+        private int cautionThresholdPropertyId = 0;
 
         #endregion
 
         #region Variables -> Color
 
-        public Color        GoodColor                   = Color.white;
-        public Color        CautionColor                = Color.white;
-        public Color        CriticalColor               = Color.white;
+        public Color GoodColor = Color.white;
+        public Color CautionColor = Color.white;
+        public Color CriticalColor = Color.white;
 
-        private int         goodColorPropertyId         = 0;
-        private int         cautionColorPropertyId      = 0;
-        private int         criticalColorPropertyId     = 0;
+        private int goodColorPropertyId = 0;
+        private int cautionColorPropertyId = 0;
+        private int criticalColorPropertyId = 0;
 
         #endregion
 
@@ -92,14 +92,14 @@ namespace Tayx.Graphy
         {
             Image.material.SetFloatArray(Name, new float[ArrayMaxSize]);
 
-            averagePropertyId           = Shader.PropertyToID("Average");
+            averagePropertyId = Shader.PropertyToID("Average");
 
-            goodThresholdPropertyId     = Shader.PropertyToID("_GoodThreshold");
-            cautionThresholdPropertyId  = Shader.PropertyToID("_CautionThreshold");
+            goodThresholdPropertyId = Shader.PropertyToID("_GoodThreshold");
+            cautionThresholdPropertyId = Shader.PropertyToID("_CautionThreshold");
 
-            goodColorPropertyId         = Shader.PropertyToID("_GoodColor");
-            cautionColorPropertyId      = Shader.PropertyToID("_CautionColor");
-            criticalColorPropertyId     = Shader.PropertyToID("_CriticalColor");
+            goodColorPropertyId = Shader.PropertyToID("_GoodColor");
+            cautionColorPropertyId = Shader.PropertyToID("_CautionColor");
+            criticalColorPropertyId = Shader.PropertyToID("_CriticalColor");
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Tayx.Graphy
         {
             Image.material.SetFloat(averagePropertyId, Average);
         }
-        
+
         /// <summary>
         /// Updates the thresholds in the material.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Tayx.Graphy
             Image.material.SetFloat(goodThresholdPropertyId, GoodThreshold);
             Image.material.SetFloat(cautionThresholdPropertyId, CautionThreshold);
         }
-        
+
         /// <summary>
         /// Updates the colors in the material.
         /// </summary>
@@ -146,9 +146,8 @@ namespace Tayx.Graphy
             // and another one called "name_Length"
 
             Image.material.SetFloatArray(Name, Array);
-         }
+        }
 
         #endregion
     }
 }
-

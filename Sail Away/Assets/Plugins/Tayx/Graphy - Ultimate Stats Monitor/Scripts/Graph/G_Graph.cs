@@ -33,5 +33,4 @@ namespace Tayx.Graphy.Graph
 
         #endregion
     }
-
 }

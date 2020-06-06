@@ -7,6 +7,7 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 20;
     public GameObject player;
     public int xp;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -25,7 +26,7 @@ public class CharacterHealth : MonoBehaviour
         //Instantiate Effect
 
         Destroy(gameObject);
-        
+
         player.GetComponent<Player_Level>().AddToXP(xp);
     }
 }

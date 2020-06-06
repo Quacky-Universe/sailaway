@@ -26,19 +26,19 @@ namespace Tayx.Graphy.Audio
 
         #region Variables -> Serialized Private
 
-        [SerializeField] private    Text            m_DBText            = null;
+        [SerializeField] private Text m_DBText = null;
 
         #endregion
 
         #region Variables -> Private
 
-        private                     GraphyManager   m_graphyManager     = null;
+        private GraphyManager m_graphyManager = null;
 
-        private                     G_AudioMonitor  m_audioMonitor      = null;
+        private G_AudioMonitor m_audioMonitor = null;
 
-        private                     int             m_updateRate        = 4;
+        private int m_updateRate = 4;
 
-        private                     float           m_deltaTimeOffset   = 0;
+        private float m_deltaTimeOffset = 0;
 
         #endregion
 
@@ -94,7 +94,7 @@ namespace Tayx.Graphy.Audio
             m_graphyManager = transform.root.GetComponentInChildren<GraphyManager>();
 
             m_audioMonitor = GetComponent<G_AudioMonitor>();
-                       
+
             UpdateParameters();
         }
 

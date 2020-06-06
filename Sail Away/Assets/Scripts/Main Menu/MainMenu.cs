@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
-        Initiate.Fade("GenerationAndAIPrototype",Color.black, 2f);
+        Initiate.Fade("GenerationAndAIPrototype", Color.black, 2f);
     }
 
     public void QuitGame()

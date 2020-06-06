@@ -25,15 +25,13 @@ public class Player_Movement : MonoBehaviour
 
     private void Update()
     {
-        
-            if (Input.GetKeyDown(KeyCode.Alpha1)) CurrentSpeed = Speed;
+        if (Input.GetKeyDown(KeyCode.Alpha1)) CurrentSpeed = Speed;
 
-            if (Input.GetKeyDown(KeyCode.Alpha2)) CurrentSpeed = Speed * 2;
-            if (Input.GetKeyDown(KeyCode.Alpha3)) CurrentSpeed = Speed * 3;
-            if (Input.GetKeyDown(KeyCode.Alpha4)) CurrentSpeed = Speed * 4;
-            if (Input.GetKeyDown(KeyCode.Alpha5)) CurrentSpeed = Speed * 5;
-            if (Input.GetKeyDown(KeyCode.Alpha9)) CurrentSpeed = Speed * 10000000000000000000;
-        
+        if (Input.GetKeyDown(KeyCode.Alpha2)) CurrentSpeed = Speed * 2;
+        if (Input.GetKeyDown(KeyCode.Alpha3)) CurrentSpeed = Speed * 3;
+        if (Input.GetKeyDown(KeyCode.Alpha4)) CurrentSpeed = Speed * 4;
+        if (Input.GetKeyDown(KeyCode.Alpha5)) CurrentSpeed = Speed * 5;
+        if (Input.GetKeyDown(KeyCode.Alpha9)) CurrentSpeed = Speed * 10000000000000000000;
     }
 
     private void FixedUpdate()

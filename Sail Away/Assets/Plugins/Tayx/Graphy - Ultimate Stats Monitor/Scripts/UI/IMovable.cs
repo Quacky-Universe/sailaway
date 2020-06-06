@@ -25,6 +25,4 @@ namespace Tayx.Graphy.UI
         /// </param>
         void SetPosition(GraphyManager.ModulePosition newModulePosition);
     }
-
 }
-

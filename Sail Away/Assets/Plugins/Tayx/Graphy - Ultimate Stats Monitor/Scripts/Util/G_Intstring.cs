@@ -40,10 +40,7 @@ namespace Tayx.Graphy.Utils.NumString
         /// </summary>
         public static bool Inited
         {
-            get
-            {
-                return negativeBuffer.Length > 0 || positiveBuffer.Length > 0;
-            }
+            get { return negativeBuffer.Length > 0 || positiveBuffer.Length > 0; }
         }
 
         /// <summary>
@@ -51,10 +48,7 @@ namespace Tayx.Graphy.Utils.NumString
         /// </summary>
         public static int MinValue
         {
-            get
-            {
-                return -(negativeBuffer.Length - 1);
-            }
+            get { return -(negativeBuffer.Length - 1); }
         }
 
         /// <summary>
@@ -62,10 +56,7 @@ namespace Tayx.Graphy.Utils.NumString
         /// </summary>
         public static int MaxValue
         {
-            get
-            {
-                return positiveBuffer.Length - 1;
-            }
+            get { return positiveBuffer.Length - 1; }
         }
 
         #endregion
@@ -92,6 +83,7 @@ namespace Tayx.Graphy.Utils.NumString
                     negativeBuffer[i] = (-i).ToString();
                 }
             }
+
             if (maxPositiveValue >= 0)
             {
                 positiveBuffer = new string[maxPositiveValue];
@@ -101,7 +93,7 @@ namespace Tayx.Graphy.Utils.NumString
                 }
             }
         }
-        
+
         /// <summary>
         /// Returns this int as a cached string.
         /// </summary>

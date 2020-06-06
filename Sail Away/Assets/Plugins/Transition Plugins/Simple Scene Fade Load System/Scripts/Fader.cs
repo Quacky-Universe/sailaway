@@ -5,27 +5,24 @@ using UnityEngine.UI;
 
 public class Fader : MonoBehaviour
 {
-    [HideInInspector]
-    public bool start = false;
-    [HideInInspector]
-    public float fadeDamp = 0.0f;
-    [HideInInspector]
-    public string fadeScene;
-    [HideInInspector]
-    public float alpha = 0.0f;
-    [HideInInspector]
-    public Color fadeColor;
-    [HideInInspector]
-    public bool isFadeIn = false;
+    [HideInInspector] public bool start = false;
+    [HideInInspector] public float fadeDamp = 0.0f;
+    [HideInInspector] public string fadeScene;
+    [HideInInspector] public float alpha = 0.0f;
+    [HideInInspector] public Color fadeColor;
+    [HideInInspector] public bool isFadeIn = false;
     CanvasGroup myCanvas;
     Image bg;
     float lastTime = 0;
+
     bool startedLoading = false;
+
     //Set callback
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
+
     //Remove callback
     void OnDisable()
     {
@@ -34,7 +31,6 @@ public class Fader : MonoBehaviour
 
     public void InitiateFader()
     {
-
         DontDestroyOnLoad(gameObject);
 
         //Getting the visual elements
@@ -46,6 +42,7 @@ public class Fader : MonoBehaviour
             bg = transform.GetComponent<Image>();
             bg.color = fadeColor;
         }
+
         //Checking and starting the coroutine
         if (myCanvas && bg)
         {
@@ -58,12 +55,12 @@ public class Fader : MonoBehaviour
 
     IEnumerator FadeIt()
     {
-
         while (!start)
         {
             //waiting to start
             yield return null;
         }
+
         lastTime = Time.time;
         float coDelta = lastTime;
         bool hasFadedIn = false;
@@ -80,7 +77,6 @@ public class Fader : MonoBehaviour
                     startedLoading = true;
                     SceneManager.LoadScene(fadeScene);
                 }
-
             }
             else
             {
@@ -90,9 +86,8 @@ public class Fader : MonoBehaviour
                 {
                     hasFadedIn = true;
                 }
-
-
             }
+
             lastTime = Time.time;
             myCanvas.alpha = alpha;
             yield return null;
@@ -110,7 +105,6 @@ public class Fader : MonoBehaviour
 
     float newAlpha(float delta, int to, float currAlpha)
     {
-
         switch (to)
         {
             case 0:

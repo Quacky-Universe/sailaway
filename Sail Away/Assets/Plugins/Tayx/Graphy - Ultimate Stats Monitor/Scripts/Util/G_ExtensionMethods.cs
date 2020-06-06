@@ -51,7 +51,7 @@ namespace Tayx.Graphy.Utils
 
             return images;
         }
-        
+
         public static List<Image> SetAllActive(this List<Image> images, bool active)
         {
             foreach (var image in images)

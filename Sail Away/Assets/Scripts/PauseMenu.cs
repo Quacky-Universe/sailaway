@@ -12,8 +12,8 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +22,8 @@ public class PauseMenu : MonoBehaviour
             if (isPaused)
             {
                 Resume();
-            }else
+            }
+            else
             {
                 Pause();
             }
@@ -46,8 +47,7 @@ public class PauseMenu : MonoBehaviour
     public void Menu()
     {
         Time.timeScale = 1f;
-        Initiate.Fade("Menu",Color.black, 2f);
-
+        Initiate.Fade("Menu", Color.black, 2f);
     }
 
     public void Quit()

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Player_Level : MonoBehaviour
 {
-
     int currentxp;
     int lvlsize;
     int currentlevel;
@@ -14,6 +13,7 @@ public class Player_Level : MonoBehaviour
 
     public GameObject bar;
     public Text leveltxt;
+
     void Start()
     {
         lvlsize = Lvlsizeincrease;
@@ -29,12 +29,11 @@ public class Player_Level : MonoBehaviour
             currentlevel++;
             leveltxt.text = "Level " + currentlevel.ToString();
             currentxp = 0;
-            lvlsize = (currentlevel+1)*Lvlsizeincrease;
+            lvlsize = (currentlevel + 1) * Lvlsizeincrease;
             bar.GetComponent<LevelBar>().SetMaxLevel(lvlsize);
         }
+
         bar.GetComponent<LevelBar>().setLevel(currentxp);
-        
-       
     }
 
     public void AddToXP(int xp)
