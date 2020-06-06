@@ -54,12 +54,12 @@ public class Island_Generation : MonoBehaviour
             i < numb;
             i++)
         {
-            var randposition = new Vector3(Random.Range(-xspread,
-                                       xspread),
-                                   Random.Range(-yspread,
+            var randposition = new Vector3(Random.Range(-100,
+                                       100),
+                                   Random.Range(yspread,
                                        yspread),
-                                   Random.Range(-zspread,
-                                       zspread)) +
+                                   Random.Range(-100,
+                                       100)) +
                                transform.position;
             var clone = Instantiate(ship,
                 randposition,
