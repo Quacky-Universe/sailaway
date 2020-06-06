@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 691ebf9488c78f84292ca2f0d9faa815,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 691ebf9488c78f84292ca2f0d9faa815, type: 3}
 --- !u!1 &3828337
@@ -1578,6 +1583,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1775767104}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &254891310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254891309}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.78637457, y: 1.2801056, z: 1.5683155}
+  m_Center: {x: 0.03113103, y: 0.4518261, z: -0.18175983}
 --- !u!4 &254891313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2675063064466771290, guid: 2996db6b9c413d942886eafa1ddc2800,
@@ -1776,6 +1794,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grass_3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5337ca7e7005a6b479c7595225e37865,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5337ca7e7005a6b479c7595225e37865, type: 3}
@@ -3147,6 +3170,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desert_1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: bb2f9a2b6cda58f4eaa9cd51e43c9828,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb2f9a2b6cda58f4eaa9cd51e43c9828, type: 3}
 --- !u!1 &668946148
@@ -4305,6 +4333,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desert_5
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 223401f85278a15449527ac0b12fec40,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 223401f85278a15449527ac0b12fec40, type: 3}
 --- !u!1 &861558106
@@ -4451,6 +4484,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grass_4
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cdf13ced8496ace4980c3e8f9ad199f4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdf13ced8496ace4980c3e8f9ad199f4, type: 3}
@@ -4963,6 +5001,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass_2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c611a81da15ba0d40bd8a46acdf2fd1e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c611a81da15ba0d40bd8a46acdf2fd1e, type: 3}
 --- !u!1 &963194225
@@ -5134,6 +5177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desert_3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d4f8f13c918a9e34c94254138b423e8d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4f8f13c918a9e34c94254138b423e8d, type: 3}
@@ -5502,6 +5550,50 @@ PrefabInstance:
     - target: {fileID: 177638, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_graphyMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_fpsGraphResolution
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_ramGraphResolution
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_toggleActiveCtrl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_toggleModeCtrl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_toggleActiveKeyCode
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_toggleModeKeyCode
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_toggleActiveAlt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_enableOnStartup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_keepAlive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22323726, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22415034, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5941,6 +6033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ice_1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2aa8b51889315d0408f71c0ee54f7fc0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aa8b51889315d0408f71c0ee54f7fc0, type: 3}
@@ -6992,6 +7089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desert_2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 158cb7a04ed0b004d9261f12cd1f5350,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 158cb7a04ed0b004d9261f12cd1f5350, type: 3}
 --- !u!1 &1537729360
@@ -7110,6 +7212,49 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1 &1539933818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539933819}
+  - component: {fileID: 1539933820}
+  m_Layer: 0
+  m_Name: Fishing Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1539933819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539933818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1539933820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539933818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a868bb98ee7434490fcb408fbb3d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1555779189
 GameObject:
   m_ObjectHideFlags: 0
@@ -8074,6 +8219,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desert_4
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d8a5ac1bf00cd514fa4174f3e3278277,
+        type: 3}
+      propertyPath: m_TagString
+      value: Island
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8a5ac1bf00cd514fa4174f3e3278277, type: 3}
 --- !u!1001 &1775767104
@@ -8181,7 +8331,7 @@ PrefabInstance:
     - target: {fileID: 6565598921227674722, guid: 2996db6b9c413d942886eafa1ddc2800,
         type: 3}
       propertyPath: speed
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6565598921227674722, guid: 2996db6b9c413d942886eafa1ddc2800,
         type: 3}
@@ -9878,6 +10028,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 518033382, guid: 13f11afe9136a5d4092a54e542c0e1c2, type: 3}
+      propertyPath: Speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087104422355368514, guid: 13f11afe9136a5d4092a54e542c0e1c2,
+        type: 3}
+      propertyPath: startTimeBTWFires
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalPosition.x
