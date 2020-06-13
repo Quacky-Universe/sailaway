@@ -5,7 +5,7 @@ public class LevelBar : MonoBehaviour
 {
     public Image fill;
     public Gradient gradient;
-    public GameObject Healthbar;
+    public GameObject Levelbar;
     public Slider slider;
 
     public void SetMaxLevel(int lvlsize)

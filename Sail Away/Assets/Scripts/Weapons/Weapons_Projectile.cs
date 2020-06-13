@@ -6,7 +6,7 @@ public class Weapons_Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Enemy") || collision.transform.CompareTag("Player"))
+        if (collision.transform.CompareTag("Enemy"))
         {
             if (collision.transform.GetComponent<CharacterHealth>() != null)
             {
