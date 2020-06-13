@@ -4902,7 +4902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a61afd08c7db14cb28a9b03350a1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 10, z: -7}
+  offset: {x: 0, y: 17, z: -7}
   smoothSpeed: 5
 --- !u!1001 &976217198
 PrefabInstance:
