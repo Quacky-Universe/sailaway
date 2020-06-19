@@ -5,8 +5,8 @@
 # The Team:
 
 + Robin (Modeller)
-+ Cristian (Programmer)
-+ Madhav (Programmer)
++ Montain (Programmer)
++ Madhav (Lead Programmer)
 + Aryan (Project Lead)
 
 # Vision:
