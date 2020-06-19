@@ -10164,6 +10164,11 @@ PrefabInstance:
       propertyPath: startTimeBTWFires
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1087104422355368514, guid: 13f11afe9136a5d4092a54e542c0e1c2,
+        type: 3}
+      propertyPath: cannonBallSpeed
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 3796140485758277314, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -10172,6 +10177,11 @@ PrefabInstance:
     - target: {fileID: 3796140485758277314, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796140485758277314, guid: 13f11afe9136a5d4092a54e542c0e1c2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4418799795354783137, guid: 13f11afe9136a5d4092a54e542c0e1c2,

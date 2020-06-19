@@ -8,17 +8,17 @@ public class Weapons_Projectile : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
+            Destroy(gameObject, 0.3f);
+            Debug.Log("Hit");
             if (collision.transform.GetComponent<CharacterHealth>() != null)
             {
                 var characterHealth = collision.transform.GetComponent<CharacterHealth>();
                 characterHealth.TakeDamage(damage);
-
-                Destroy(gameObject);
             }
         }
-        else if (collision.gameObject.name != null)
+        /*else if (collision.gameObject.name != null)
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 }

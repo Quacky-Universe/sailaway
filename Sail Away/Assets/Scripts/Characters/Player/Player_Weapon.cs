@@ -26,7 +26,6 @@ public class Player_Weapon : MonoBehaviour
         Vector2 lookDirection = Input.mousePosition - currentPos;
         var angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         var weaponPointRotation = Quaternion.AngleAxis(-angle, Vector3.up);
-
         rotatePoint.rotation = weaponPointRotation;
 
         if (PauseMenu.isPaused == false)
@@ -34,15 +33,15 @@ public class Player_Weapon : MonoBehaviour
             if (timeBTWFires <= 0f)
             {
                 if (Input.GetButtonDown("Fire1"))
-
+                {
                     if (cannonBall != null)
                     {
                         var cannonBallGO = Instantiate(cannonBall, weaponPoint.position, weaponPoint.rotation);
                         cannonBallGO.GetComponent<Rigidbody>().AddForce(rotatePoint.forward * cannonBallSpeed);
                         Destroy(cannonBallGO, 5f);
-
                         timeBTWFires = startTimeBTWFires;
                     }
+                }
             }
             else
             {
