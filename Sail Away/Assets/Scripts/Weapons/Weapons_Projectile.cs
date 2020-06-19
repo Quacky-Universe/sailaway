@@ -16,9 +16,9 @@ public class Weapons_Projectile : MonoBehaviour
                 characterHealth.TakeDamage(damage);
             }
         }
-        /*else if (collision.gameObject.name != null)
+        else if (collision.gameObject.name != null)
         {
-            Destroy(gameObject);
-        }*/
+            Destroy(gameObject, 0.5f);
+        }
     }
 }
