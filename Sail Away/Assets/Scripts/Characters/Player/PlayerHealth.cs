@@ -18,6 +18,7 @@ public class PlayerHealth : CharacterHealth
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q)) TakeDamage(2);
+        
     }
 
     private void OnCollisionEnter(Collision collision)
