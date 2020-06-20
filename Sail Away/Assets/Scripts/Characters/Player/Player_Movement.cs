@@ -17,10 +17,14 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private float turnSpeed = 15f;
 
+    [SerializeField] private float slowedSpeedTime = 2f;
+    private float NormalSpeed;
+
     private void Start()
     {
         playerRB = GetComponent<Rigidbody>();
         CurrentSpeed = Speed;
+        NormalSpeed = Speed;
     }
 
     private void Update()
@@ -36,6 +40,8 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(CurrentSpeed);
+        
         //Detect player input 
         InputX = Input.GetAxis("Horizontal");
         InputY = Input.GetAxis("Vertical");
@@ -47,15 +53,30 @@ public class Player_Movement : MonoBehaviour
 
         //Rotate the player based on the moveDir
         if (MoveDir.magnitude > .1f)
+        {
             //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(MoveDir, Vector3.up), Time.fixedDeltaTime * turnSpeed);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(MoveDir),
-                turnSpeed * Time.deltaTime);
-        else
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(MoveDir), turnSpeed * Time.deltaTime);
+        } else
+        {
             //Stops the player if we press nothing 
             playerRB.velocity = Vector3.zero;
-
+        }
         //Move the player
-        playerRB.MovePosition(Vector3.Lerp(transform.position,
-            transform.position + transform.forward * MoveDir.magnitude, CurrentSpeed * Time.deltaTime));
+        playerRB.MovePosition(Vector3.Lerp(transform.position,transform.position + transform.forward * MoveDir.magnitude, CurrentSpeed * Time.deltaTime));
     }
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.transform.CompareTag("Island") && slowedSpeedTime > 0)
+        {
+            slowedSpeedTime -= Time.deltaTime;
+            CurrentSpeed = CurrentSpeed / 2;
+            playerRB.MovePosition(Vector3.Lerp(transform.position, transform.position + transform.forward * MoveDir.magnitude, (CurrentSpeed * Time.deltaTime)/2));
+        }
+        if (slowedSpeedTime <= 0)
+        {
+            CurrentSpeed = NormalSpeed;
+            slowedSpeedTime = 2f;
+        }
+    }*/
 }
