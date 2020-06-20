@@ -24,7 +24,7 @@ public class Island_Generation : MonoBehaviour
             i < num;
             i++)
             SpreadItem();
-        SpreadShip(20);
+        SpreadShip(40);
     }
 
     private void SpreadItem()

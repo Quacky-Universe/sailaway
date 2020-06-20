@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerHealth : CharacterHealth
 {
@@ -6,6 +7,7 @@ public class PlayerHealth : CharacterHealth
     private int currentHealth;
     private int hittingIsland;
     public Player_Camera cameraShake;
+    public GameObject deadscreen;
 
     private void Start()
     {
@@ -16,6 +18,7 @@ public class PlayerHealth : CharacterHealth
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q)) TakeDamage(2);
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -34,7 +37,19 @@ public class PlayerHealth : CharacterHealth
         healthBar.setHealth(currentHealth);
         if (currentHealth <= 0f)
         {
-
+         Die();
         }
+    }
+    public virtual void Die()
+    {
+        deadscreen.SetActive(true);
+        StartCoroutine(Exit(5));
+    }
+
+    IEnumerator Exit(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Initiate.Fade("Menu", Color.black, 2f);
+
     }
 }
