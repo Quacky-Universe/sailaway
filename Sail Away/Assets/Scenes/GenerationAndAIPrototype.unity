@@ -10274,5 +10274,10 @@ PrefabInstance:
       propertyPath: deadscreen
       value: 
       objectReference: {fileID: 569206540}
+    - target: {fileID: 7598345310471000620, guid: 13f11afe9136a5d4092a54e542c0e1c2,
+        type: 3}
+      propertyPath: m_Parameters.alignment
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f11afe9136a5d4092a54e542c0e1c2, type: 3}

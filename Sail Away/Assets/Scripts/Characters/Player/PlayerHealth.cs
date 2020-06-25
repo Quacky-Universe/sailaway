@@ -17,7 +17,14 @@ public class PlayerHealth : CharacterHealth
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) TakeDamage(2);
+        if (Input.GetKeyDown(KeyCode.Q)) 
+        { 
+            TakeDamage(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.E)) 
+        {
+            GetHealt(2);
+        }
         
     }
 
@@ -38,6 +45,16 @@ public class PlayerHealth : CharacterHealth
         if (currentHealth <= 0f)
         {
          Die();
+        }
+    }
+
+    public void GetHealt(int amount)
+    {
+        currentHealth += amount;
+        healthBar.setHealth(currentHealth);
+        if (currentHealth >= maxHealth)
+        {
+         healthBar.setHealth(maxHealth);
         }
     }
     public virtual void Die()
