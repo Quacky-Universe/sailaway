@@ -40,14 +40,13 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(CurrentSpeed);
         
         //Detect player input 
         InputX = Input.GetAxis("Horizontal");
         InputY = Input.GetAxis("Vertical");
 
         //Take input and clamp it so the player can't go faster by pressing both diagonal keys at once.
-        var MoveDir = new Vector3(InputX, 0.0f, InputY);
+        var MoveDir = new Vector3(-InputX, 0.0f, -InputY);
         MoveDir = Vector3.ClampMagnitude(MoveDir, 1);
 
 
