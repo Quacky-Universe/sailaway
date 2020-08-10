@@ -12,7 +12,7 @@ public class Weapons_Projectile : MonoBehaviour
             Debug.Log("Hit");
             if (collision.transform.GetComponent<CharacterHealth>() != null)
             {
-                var characterHealth = collision.transform.GetComponent<CharacterHealth>();
+                CharacterHealth characterHealth = collision.transform.GetComponent<CharacterHealth>();
                 characterHealth.TakeDamage(damage);
             }
         }

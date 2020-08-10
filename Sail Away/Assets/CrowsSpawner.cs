@@ -34,13 +34,17 @@ public class CrowsSpawner : MonoBehaviour
     IEnumerator SpawnCrow()
     {
         crowHasSpawned = false;
-        transform.localPosition = new Vector3(Random.Range(-5f, 5f), 10f, Random.Range(-5f, 5f));
+        transform.localPosition = new Vector3(Random.Range(-0.375f, 0.375f), 2f, Random.Range(-0.225f, 0.5f));
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, layerMask))
         {
-            //TODO: Spawn crow
-            Debug.Log("Crow spawned");
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(transform.parent.position.x - 10f, transform.parent.position.x + 10f), 
+                                                        transform.parent.position.y + 10f, 
+                                                        Random.Range(transform.parent.position.z - 10f, transform.parent.position.z + 10f));
+            Debug.Log(randomSpawnPosition);
+            CrowMovement crowObject = ObjectPooler.instance.SpawnFromPool("Crow", randomSpawnPosition, Quaternion.identity).GetComponent<CrowMovement>();
+            crowObject.moveSpot = hit.point;
             crowHasSpawned = true;
             yield return new WaitForSeconds(Random.Range(10f, 16f));
             yield return StartCoroutine(SpawnCrow());

@@ -519,6 +519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 48895421}
   - component: {fileID: 48895422}
+  - component: {fileID: 48895420}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -526,6 +527,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &48895420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48895419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f300df9ee081ca46967fe74bdf7cde1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Crow
+    prefab: {fileID: 4114483530178272148, guid: cc10a7809ed047d42bf539859c5e0c8e,
+      type: 3}
+    size: 5
 --- !u!4 &48895421
 Transform:
   m_ObjectHideFlags: 0
@@ -2351,7 +2369,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.4878736, y: 2.0559795, z: 4.2950487}
+  m_Size: {x: 0.20898144, y: 0.17270225, z: 0.36078417}
   m_Center: {x: -0.49296725, y: 0.007874718, z: -1.3537446}
 --- !u!114 &379276387
 MonoBehaviour:
@@ -9376,7 +9394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85ce7af6553daa4fa8e77fa65ba6c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crowStartTime: 30
+  crowStartTime: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -10482,17 +10500,22 @@ PrefabInstance:
     - target: {fileID: 4695432082937655882, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.3841715
+      value: 0.3682704
       objectReference: {fileID: 0}
     - target: {fileID: 4695432082937655882, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.9219495
+      value: 0.16144381
       objectReference: {fileID: 0}
     - target: {fileID: 4695432082937655882, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.87408
+      value: 0.07342273
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695432082937655882, guid: 13f11afe9136a5d4092a54e542c0e1c2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.147
       objectReference: {fileID: 0}
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
@@ -10552,17 +10575,17 @@ PrefabInstance:
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.08400001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.08400001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4834268857132592960, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.08400001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4834268857132592963, guid: 13f11afe9136a5d4092a54e542c0e1c2,
         type: 3}
