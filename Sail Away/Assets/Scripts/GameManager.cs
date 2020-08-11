@@ -18,5 +18,5 @@ public class GameManager : MonoBehaviour
 
     public Transform player;
 
-    public Transform interactUI;
+    public InteractUI interactUI;
 }

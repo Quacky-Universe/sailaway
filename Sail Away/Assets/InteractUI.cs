@@ -5,22 +5,17 @@ using TMPro;
 
 public class InteractUI : MonoBehaviour
 {
-    [HideInInspector] public TextMeshPro text;
+    [HideInInspector] public TextMeshProUGUI text;
     [HideInInspector] public Animator anim;
 
-    void Start()
+    void Awake()
     {
-        text = GetComponent<TextMeshPro>();
+        text = GetComponentInChildren<TextMeshProUGUI>();
         anim = GetComponent<Animator>();
     }
 
     void OnEnable()
     {
         anim.SetBool("State", true);
-    }
-
-    void OnDisable()
-    {
-        anim.SetBool("State", false);
     }
 }

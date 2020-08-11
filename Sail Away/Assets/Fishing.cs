@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.Events;
 
 public class Fishing : MonoBehaviour
@@ -11,34 +9,50 @@ public class Fishing : MonoBehaviour
 
     InteractUI interactUI;
 
-    public Event interactEvent;
+    bool canInteract = false;
+    bool isInteracting = false;
 
-    IEnumerator OnTriggerEnter(Collider other)
+    public UnityEvent interactEvent;
+
+    void Start()
     {
-        if (other.CompareTag(player))
+        interactUI = GameManager.instance.interactUI;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && canInteract)
         {
-            if (interactUI != null)
-            {
-                interactUI.anim.SetBool("State", false);
-                yield return new WaitForSeconds(0.5f);
-                interactUI.anim.SetBool("State", true);
-            }
+            interactEvent.Invoke();
 
-            Vector3 popUpPosition = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
-
-            interactUI = ObjectPooler.instance.SpawnFromPool("Interact UI", popUpPosition, Quaternion.identity).GetComponent<InteractUI>();
-            interactUI.text.text = interactText;
+            canInteract = false;
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(player))
         {
-            if (interactUI != null && interactUI.enabled)
-            {
-                interactUI.gameObject.SetActive(false);
-            }
+            Vector3 popUpPosition = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+            interactUI.transform.position = popUpPosition;
+            interactUI.text.text = interactText;
+            interactUI.gameObject.SetActive(true);
+
+            canInteract = true;
+        }
+    }
+
+    IEnumerator OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(player))
+        {
+            canInteract = false;
+
+            interactUI.anim.SetBool("State", false);
+
+            yield return new WaitForSeconds(0.5f);
+
+            interactUI.gameObject.SetActive(false);
         }
     }
 }
