@@ -544,6 +544,10 @@ MonoBehaviour:
     prefab: {fileID: 4114483530178272148, guid: cc10a7809ed047d42bf539859c5e0c8e,
       type: 3}
     size: 5
+  - tag: Interact UI
+    prefab: {fileID: 4114483530178272148, guid: cc10a7809ed047d42bf539859c5e0c8e,
+      type: 3}
+    size: 1
 --- !u!4 &48895421
 Transform:
   m_ObjectHideFlags: 0
@@ -573,6 +577,7 @@ MonoBehaviour:
   cam: {fileID: 963194227}
   enemy: {fileID: 2675063064466771289, guid: 2996db6b9c413d942886eafa1ddc2800, type: 3}
   player: {fileID: 518033384}
+  interactUI: {fileID: 0}
 --- !u!1 &67279662
 GameObject:
   m_ObjectHideFlags: 0

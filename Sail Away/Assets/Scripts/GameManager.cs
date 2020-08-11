@@ -2,11 +2,6 @@
 
 public class GameManager : MonoBehaviour
 {
-    public Camera cam;
-    public GameObject enemy;
-
-    public Transform player;
-
     #region Singleton
 
     public static GameManager instance;
@@ -17,4 +12,11 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    public Camera cam;
+    public GameObject enemy;
+
+    public Transform player;
+
+    public Transform interactUI;
 }
