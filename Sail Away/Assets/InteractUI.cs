@@ -14,6 +14,16 @@ public class InteractUI : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void LateUpdate()
+    {
+        transform.LookAt(GameManager.instance.cam.transform);
+    }
+
     void OnEnable()
     {
         anim.SetBool("State", true);
