@@ -8,101 +8,64 @@ using UnityEngine.AI;
 public class Dolphin : MonoBehaviour
 {
     NavMeshAgent agent;
-    [SerializeField] Transform graphics;
+    [SerializeField] AnimationCurve jumpCurve;
+
+    Vector3 jumpDestination;
+    [SerializeField] float jumpSpeed = 1.5f;
+    [SerializeField] float jumpDistance = 7.5f;
+
+    [SerializeField] Vector3 lerpOffset;
+
+    float currentSpeed = 3f;
+    [SerializeField] float normalSpeed = 3f;
+    [SerializeField] float fleeSpeed = 6f;
+
+    bool isSwimming = true;
+
+    [SerializeField] float lerpTime = 1.5f;
+    float timer = 0f;
 
     [SerializeField] float radius = 5f;
-    bool isSwimming = false;
-    bool isJumping = false;
-
-    public bool finishedJump = false;
-
-    Vector2 centerPosition;
-    Vector3 moveSpotPosition;
-
-    Animator anim;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
 
-        //Get center position of movement area
-        centerPosition = transform.position;
-        //Get random position inside the movement area
-        moveSpotPosition = new Vector3(Random.Range(centerPosition.x - 5f, centerPosition.x + 5f), 0f, Random.Range(centerPosition.y - 5f, centerPosition.y + 5f));
-        //Move the agent towards that random position
-        //agent.SetDestination(moveSpotPosition);
+        jumpDestination = new Vector3(transform.position.x, transform.position.y, transform.position.z + jumpDistance);
+        lerpOffset = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
 
-        //Start Animation Cycle
-        //anim.SetBool("Swimming", true);
-        StartCoroutine(AnimationCycle());
-
-        Debug.Log(graphics.name);
+        StartCoroutine(Jump());
     }
 
     void Update()
     {
-        /*
-        //Get distance from Player
-        float distanceFromPlayer = (GameManager.instance.player.position - transform.position).sqrMagnitude;
-
-        //Check if the distance from Player is lower than the radius
-        if (distanceFromPlayer <= radius * radius)
+        if (!isSwimming)
         {
-            //TODO: Move towards nearest island
-            //Set the swimming/guiding the player state to false
-            isSwimming = true;
-        }
-        else
-        {
-            if (isSwimming)
+            if (timer < lerpTime)
             {
-                //Stop Animation Cycle
-                StopAllCoroutines();
-                //Get center position of movement area
-                centerPosition = transform.position;
-                //Get random position inside the movement area
-                moveSpotPosition = new Vector3(Random.Range(centerPosition.x - 5f, centerPosition.x + 5f), 0f, Random.Range(centerPosition.y - 5f, centerPosition.y + 5f));
-                //Move the agent towards that random position
-                agent.SetDestination(moveSpotPosition);
-                //Set the swimming/guiding the player state to false
-                isSwimming = false;
+                timer += Time.deltaTime;
+            }
+
+            float lerpRatio = timer / lerpTime;
+
+            Vector3 positionOffset = jumpCurve.Evaluate(lerpRatio) * lerpOffset;
+
+            transform.position = Vector3.Lerp(transform.position, jumpDestination, lerpRatio) + positionOffset;
+
+            if (transform.position == jumpDestination)
+            {
+                StartCoroutine(Jump());
+                jumpDestination = new Vector3(transform.position.x, transform.position.y, transform.position.z + jumpDistance);
+                lerpOffset = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+                isSwimming = true;
             }
         }
-
-        //Get distance from Move Spot Position
-        float distanceFromMoveSpotPosition = (moveSpotPosition - transform.position).sqrMagnitude;
-
-        //Check if distance from Move Spot Position is lower than 0.2
-        if (distanceFromMoveSpotPosition <= 0.04f)
-        {
-            //Get random position inside the movement area
-            moveSpotPosition = new Vector3(Random.Range(centerPosition.x - 5f, centerPosition.x + 5f), 0f, Random.Range(centerPosition.y - 5f, centerPosition.y + 5f));
-            //Move the agent towards that random position
-            agent.SetDestination(moveSpotPosition);
-        }
-        */
-
-        if (isJumping && finishedJump)
-        {
-            SetPositions();
-        }
     }
 
-    IEnumerator AnimationCycle()
+    IEnumerator Jump()
     {
-        yield return new WaitForSeconds(Random.Range(1.5f, 4f));
-        isJumping = true;
-        //agent.speed = 0f;
-        anim.SetTrigger("Jump");
-    }
-
-    public void SetPositions()
-    {
-        transform.position = new Vector3(graphics.position.x, 0f, graphics.position.z);
-        graphics.localPosition = new Vector3(transform.position.x, -1f, transform.position.z);
-        StartCoroutine(AnimationCycle());
-        finishedJump = false;
-        isJumping = false;
+        timer = 0f;
+        yield return new WaitForSeconds(3f);
+        isSwimming = false;
     }
 }

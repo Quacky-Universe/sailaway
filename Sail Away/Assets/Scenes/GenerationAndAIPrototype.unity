@@ -450,9 +450,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6802840f0ab34b14691db847a619d2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphics: {fileID: 1431984316}
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5.5792823
+      outSlope: 5.5792823
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04311774
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0.006548643
+      outSlope: 0.006548643
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0032959
+      value: 0
+      inSlope: -5.5657206
+      outSlope: -5.5657206
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.036204107
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  jumpSpeed: 1.5
+  jumpDistance: 5
+  lerpOffset: {x: 0, y: 5, z: 0}
+  normalSpeed: 3
+  fleeSpeed: 6
+  lerpTime: 3
   radius: 5
-  finishedJump: 0
 --- !u!195 &37035249
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -460,7 +497,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37035247}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
