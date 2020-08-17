@@ -11150,6 +11150,75 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1001 &2735694887127229572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173482, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735694885662173485, guid: b3299ebc1a9a45a449d42d03be72bafb,
+        type: 3}
+      propertyPath: m_Name
+      value: Fishing Zone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3299ebc1a9a45a449d42d03be72bafb, type: 3}
 --- !u!1001 &4834268858418188402
 PrefabInstance:
   m_ObjectHideFlags: 0
