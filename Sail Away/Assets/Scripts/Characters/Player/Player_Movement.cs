@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player_Movement : MonoBehaviour
@@ -42,11 +42,47 @@ public class Player_Movement : MonoBehaviour
     {
         
         //Detect player input 
-        InputX = Input.GetAxis("Horizontal");
-        InputY = Input.GetAxis("Vertical");
+        //InputX = Input.GetAxis("Horizontal");
+        //InputY = Input.GetAxis("Vertical");
+
+        if (Input.GetKey(InputManager.instance.m_Right_Key) && InputX < 1f)
+        {
+            InputX += Time.deltaTime;
+        }
+        else if (InputX > 0f)
+        {
+            InputX -= Time.deltaTime;
+        }
+
+        if (Input.GetKey(InputManager.instance.m_Left_Key) && InputX > -1f)
+        {
+            InputX -= Time.deltaTime;
+        }
+        else if (InputX < 0f)
+        {
+            InputX += Time.deltaTime;
+        }
+
+        if (Input.GetKey(InputManager.instance.m_Forward_Key) && InputY < 1f)
+        {
+            InputY += Time.deltaTime;
+        }
+        else if (InputY > 0f)
+        {
+            InputY -= Time.deltaTime;
+        }
+
+        if (Input.GetKey(InputManager.instance.m_Backwards_Key) && InputY > -1f)
+        {
+            InputY -= Time.deltaTime;
+        }
+        else if (InputY < 0f)
+        {
+            InputY += Time.deltaTime;
+        }
 
         //Take input and clamp it so the player can't go faster by pressing both diagonal keys at once.
-        var MoveDir = new Vector3(-InputX, 0.0f, -InputY);
+        var MoveDir = new Vector3(InputX, 0.0f, InputY);
         MoveDir = Vector3.ClampMagnitude(MoveDir, 1);
 
 

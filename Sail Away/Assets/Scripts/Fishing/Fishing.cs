@@ -48,6 +48,9 @@ public class Fishing : MonoBehaviour
         {
             canInteract = false;
 
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.xp += 5;
+
             interactUI.anim.SetBool("State", false);
 
             yield return new WaitForSeconds(0.5f);
