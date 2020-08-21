@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CrowsSpawner : MonoBehaviour
@@ -9,6 +10,8 @@ public class CrowsSpawner : MonoBehaviour
     bool crowHasSpawned = false;
 
     [SerializeField] LayerMask layerMask;
+
+    int crowCount = 0;
 
     void Update()
     {
@@ -26,8 +29,14 @@ public class CrowsSpawner : MonoBehaviour
             if (afkTime >= 0f)
             {
                 afkTime = 0f;
+                crowCount = 0;
                 StopAllCoroutines();
             }
+        }
+
+        if (crowCount >= 5)
+        {
+            StopAllCoroutines();
         }
     }
 
@@ -44,10 +53,14 @@ public class CrowsSpawner : MonoBehaviour
                                                         Random.Range(transform.parent.position.z - 10f, transform.parent.position.z + 10f));
             Debug.Log(randomSpawnPosition);
             CrowMovement crowObject = ObjectPooler.instance.SpawnFromPool("Crow", randomSpawnPosition, Quaternion.identity).GetComponent<CrowMovement>();
+            crowCount++;
             crowObject.moveSpot = hit.point;
             crowHasSpawned = true;
-            yield return new WaitForSeconds(Random.Range(10f, 16f));
-            yield return StartCoroutine(SpawnCrow());
+            if (crowCount < 5)
+            {
+                yield return new WaitForSeconds(Random.Range(10f, 16f));
+                yield return StartCoroutine(SpawnCrow());
+            }
         }
         else
         {

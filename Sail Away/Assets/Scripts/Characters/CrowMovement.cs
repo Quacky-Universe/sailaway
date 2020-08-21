@@ -24,38 +24,35 @@ public class CrowMovement : MonoBehaviour
 
     void Update()
     {
-        if (moveSpot != null)
+        if (!isLeaving)
         {
-            if (!isLeaving)
+            if (transform.position == moveSpot)
             {
-                if (transform.position == moveSpot)
+                if (isFlying)
                 {
-                    if (isFlying)
-                    {
-                        //anim.SetBool("Flying", false);
-                        isFlying = false;
-                    }
-                }
-                else
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, moveSpot, speed * Time.deltaTime);
+                    //anim.SetBool("Flying", false);
+                    isFlying = false;
                 }
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
-
-                if (transform.position == startPosition)
-                {
-                    gameObject.SetActive(false);
-                }
+                transform.position = Vector3.MoveTowards(transform.position, moveSpot, speed * Time.deltaTime);
             }
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
 
-            if (Input.anyKeyDown)
+            if (transform.position == startPosition)
             {
-                isLeaving = true;
-                //anim.SetBool("Flying", true);
+                gameObject.SetActive(false);
             }
+        }
+
+        if (Input.anyKeyDown)
+        {
+            isLeaving = true;
+            //anim.SetBool("Flying", true);
         }
     }
 }
