@@ -10480,6 +10480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Presence Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1207543391218706, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4538616532646682, guid: 6765f9da738e023499d7110035d6a3f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
