@@ -51,7 +51,7 @@ public class CrowsSpawner : MonoBehaviour
             Vector3 randomSpawnPosition = new Vector3(Random.Range(transform.parent.position.x - 10f, transform.parent.position.x + 10f), 
                                                         transform.parent.position.y + 10f, 
                                                         Random.Range(transform.parent.position.z - 10f, transform.parent.position.z + 10f));
-            Debug.Log(randomSpawnPosition);
+            Debug.Log("RandomSpawnPoint:" + randomSpawnPosition);
             CrowMovement crowObject = ObjectPooler.instance.SpawnFromPool("Crow", randomSpawnPosition, Quaternion.identity).GetComponent<CrowMovement>();
             crowCount++;
             crowObject.moveSpot = hit.point;

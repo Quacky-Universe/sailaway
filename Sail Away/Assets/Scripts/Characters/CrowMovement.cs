@@ -37,6 +37,7 @@ public class CrowMovement : MonoBehaviour
             else
             {
                 transform.position = Vector3.MoveTowards(transform.position, moveSpot, speed * Time.deltaTime);
+                Debug.Log("MoveSpot:" + moveSpot);
             }
         }
         else
